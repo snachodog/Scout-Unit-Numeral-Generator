@@ -3,12 +3,15 @@ import os
 from PIL import Image
 
 # Define the input value
+unit_type = input("Enter the unit type:Troop, Pack, or Crew")
 unit_number = input("Enter your unit number")
 
 # Create an empty list to store the images
 images = []
 
 # Loop through each digit in the input value
+# TO-DO: Move the pack images into folder Pack, and get similar images for Troop/Crew and put them in their respective folders.
+# Then, have the program open folder (unit_type) and find (unit_number.jpg)
 for digit in str(unit_number):
     # Load the image from the file
     image = Image.open(f"{digit}.jpg")
@@ -25,4 +28,4 @@ for img in images:
     x_offset += img.width
 
 # Save the final result
-result_image.save("str(unit_number).jpg")
+result_image.save(f"{unit_type} {unit_number}.jpg")
